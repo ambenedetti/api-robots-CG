@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  robot: one
+  armor_type: MyString
+  serial_number: MyString
+
+two:
+  robot: two
+  armor_type: MyString
+  serial_number: MyString
