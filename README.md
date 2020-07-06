@@ -1,24 +1,86 @@
 # README
+<strong>Welcome to Space Robots!</strong> An API created with Ruby On Rails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+You can create new robots, add weapons or armor to them, update their attributes and delete them.
 
-Things you may want to cover:
+<strong>Instructions:</strong> 
+Robot Types must be:
+hackerobot 
+protectobot 
+tacticrobot 
+securobot 
+attackrobot 
+cleanerbot
 
-* Ruby version
+Weapon Type must be:
+laser 
+code 
+acid 
+map 
+grenade 
+ray
 
-* System dependencies
+Armor Type must be:
+shield 
+magentic field
+water shield
+invisible field
+smoke bomb
 
-* Configuration
+#View all robots
 
-* Database creation
+GET https://api-robots-cg.herokuapp.com/api/v1/robots
 
-* Database initialization
+#Create new robot
 
-* How to run the test suite
+POST https://api-robots-cg.herokuapp.com/api/v1/robots
+headers:
+Content-Type application/json
+body:
+{"robot": {
+"robot_type": "INSERT_ROBOT_TYPE_FROM_LIST",
+"serial_number": "R + (6 digits)",
+"name": "INSERT_ROBOT_NAME"
+} }
 
-* Services (job queues, cache servers, search engines, etc.)
+#View Robot with weapons and armor
 
-* Deployment instructions
+GET https://api-robots-cg.herokuapp.com/api/v1/robots/{INSERT_ROBOT_ID}
 
-* ...
+#Delete Robot
+
+DELETE https://api-robots-cg.herokuapp.com/api/v1/robots/{INSERT_ROBOT_ID}
+
+#Update Robot's Weapons
+
+PATCH https://api-robots-cg.herokuapp.com/api/v1/robots/{INSERT_ROBOT_ID}/weapons/{INSERT_WEAPON_ID}
+headers:
+Content-Type application/json
+body:
+{"weapon": {
+"weapon_type": "INSERT_WEAPON_TYPE_FROM_LIST"
+} }
+
+#Update Robot's Armor
+
+PATCH https://api-robots-cg.herokuapp.com/api/v1/robots/{INSERT_ROBOT_ID}/armors/{INSERT_ARMOR_ID}
+headers:
+Content-Type application/json
+body:
+{"armor": {
+"armor_type": "INSERT_ARMOR_TYPE_FROM_LIST"
+} }
+
+#Search for Robot by Weapon
+
+GET https://api-robots-cg.herokuapp.com/api/v1/robots?weapon={INSERT_WEAPON_TYPE}
+
+#Search for Robot by Armor
+
+GET https://api-robots-cg.herokuapp.com/api/v1/robots?weapon={INSERT_ARMOR_TYPE}
+
+#Search for Robot by Name
+
+GET https://api-robots-cg.herokuapp.com/api/v1/robots?weapon={INSERT_NAME}
+
+
